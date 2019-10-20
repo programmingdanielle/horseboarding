@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+    <meta charset="UTF-8" />
+    <title th:text="${title}">Title</title>
+</head>
+<body>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<h1 th:text="${title}">Horse Boarding Facilities</h1>
+
+<p th:unless="${facilities} and ${facilities.size()}">Presently there are no horse facilities near you.</p>
+
+<table th:if="${facilities} and ${facilities.size()}">
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Cost</th>
+        <th>Location</th>
+        <th>Type</th>
+    </tr>
+    <tr th:each="facility : ${facilities}">
+        <td th:text="${facility.name}"></td>
+        <td th:text="${facility.description}"></td>
+        <td th:text="${facility.cost}"></td>
+        <td th:text="${facility.location}"></td>
+        <td th:text="${facility.type.name}"></td>
+    </tr>
+</table>
+
+
+</body>
+</html>

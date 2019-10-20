@@ -1,0 +1,7 @@
+body {
+    font-family: sans-serif;
+}
+
+td, th, tr {
+    padding: 10px;
+}

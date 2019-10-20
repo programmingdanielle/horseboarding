@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:fragment="head">
+    <meta charset="UTF-8"/>
+    <title th:text="${title}">Horse Boarding Facilities</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+
+
+<body>
+
+<nav th:fragment="navigation">
+    <p style="text-align:left;"><a href="/">home</a> | <a href="/add">add</a> | <a href="/remove">remove</a>
+        <span style="float:right;">login | <a href="register">register</a>
+        </span>
+    </p>
+</nav>
+
+
+</body>
+</html>

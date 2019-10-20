@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8" />
+    <title th:text="${title}"></title>
+</head>
+<body>
+
+<nav th:replace="fragments :: navigation">
+
+</nav>
+
+<h1 th:text="${title}">Default Title</h1>
+
+<form method="post" th:object="${horse}">
+    <label th:for="name">Name</label>
+    <input type="text" th:field="*{name}" />
+    <span th:errors="*{name}"></span>
+    <br />
+    <label th:for="description">Description</label>
+    <input type="text" th:field="*{description}" />
+    <span th:errors="*{description}"></span>
+    <br />
+    <label th:for="cost">Board Cost</label>
+    <input type="text" th:field="*{cost}" />
+    <span th:errors="*{cost}"></span>
+    <br />
+    <input type="text" th:field="*{location}"/>
+    <span th:errors="*{location}"></span>
+
+    <label th:for="type">Type</label>
+    <select th:field="*{type}">
+        <option th:each="horseType : ${horseTypes}"
+                th:text="${horseType.name}"
+                th:value="${horseType}"></option>
+    </select>
+
+    <input type="submit" value="Add Facility" />
+</form>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8"/>
+    <title th:text="${title}">Title</title>
+</head>
+
+
+<body>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<p th:unless="${facilities} and ${facilities.size()}">There are no facilities to be removed. Go <a href="/add">add</a> one here.</p>
+
+<form method="post">
+<div th:each="facility : ${facilities}" class="checkbox">
+    <input type="checkbox" name="facilityId" th:value="${facility.facilityId}" th:id="${facility.facilityId}"/>
+    <label th:for="${facility.name}" th:text="${facility.name}"></label>
+</div>
+
+<input type="submit" value="Remove Facility" />
+</form>
+
+</body>
+</html>
